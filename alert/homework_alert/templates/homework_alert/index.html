@@ -21,6 +21,11 @@
 				<tr>
 					<th>講義名</th><th>課題</th><th>提出期限</th>
 				</tr>
+				{% for work in works %}
+					<tr>
+						<td>{{ work.lecture }}</td><td>{{ work.name }}</td><td>{{ work.deadline }}</td>
+					</tr>
+				{% endfor %}
 			</table>
 		</div>
 	</body>
