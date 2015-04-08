@@ -1,0 +1,6 @@
+# symlink
+django-admin
+
+# binary
+*.pyc
+*.sqlite3
