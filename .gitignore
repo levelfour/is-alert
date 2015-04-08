@@ -4,3 +4,6 @@ django-admin
 # binary
 *.pyc
 *.sqlite3
+
+# automatically-generated
+migrations

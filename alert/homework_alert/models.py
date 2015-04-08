@@ -12,6 +12,6 @@ class User(models.Model):
 
 
 class UserHomework(models.Model):
-    user = models.ForeignField(User)
-    homework = models.ForeignField(Homework)
+    user = models.ForeignKey(User)
+    homework = models.ForeignKey(Homework)
     created_at = models.DateTimeField('create datetime')
