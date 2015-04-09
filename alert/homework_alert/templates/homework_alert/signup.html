@@ -13,10 +13,13 @@
 
 	<body>
 		<header>
-			IS2015-Homework-Alert
+			<a href="/homework">IS2015-Homework-Alert</a>
 		</header>
 		<div class="contents">
 			<h1>アカウント作成</h1>
+			{% if error != None %}
+				<span class="error">{{ error }}</span>
+			{% endif %}
 			<form name="signup" method="post" url="./">
 				{% csrf_token %}
 				<table id="signup">

@@ -22,6 +22,10 @@ header {
 	font-size: 1.8rem;
 }
 
+span.error {
+	color: #f00;
+}
+
 div.contents {
 	padding: 10px;
 }

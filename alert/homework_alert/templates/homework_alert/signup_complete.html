@@ -16,17 +16,11 @@
 			<a href="/homework">IS2015-Homework-Alert</a>
 		</header>
 		<div class="contents">
-			<a href="login">ログイン</a>
-			<table id="works">
-				<tr>
-					<th>講義名</th><th>課題</th><th>提出期限</th>
-				</tr>
-				{% for work in works %}
-					<tr>
-						<td>{{ work.lecture }}</td><td>{{ work.name }}</td><td>{{ work.deadline }}</td>
-					</tr>
-				{% endfor %}
-			</table>
+			<h1>アカウント作成</h1>
+			<div>
+				アカウントの作成が完了しました。
+				<a href="/homework/login">こちら</a>からログインしてください。
+			</div>
 		</div>
 	</body>
 </html>
