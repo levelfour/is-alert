@@ -15,15 +15,15 @@ class Homework(models.Model):
     lecture = models.CharField(max_length=64)
     name = models.CharField(max_length=64, null=True)
     deadline = models.DateTimeField('deadline')
-    created_at = models.DateTimeField('create datetime', null=True)
-    updated_at = models.DateTimeField('update datetime', null=True)
+    created_at = models.DateTimeField('create datetime', auto_now_add=True, null=True)
+    updated_at = models.DateTimeField('update datetime', auto_now=True, null=True)
 
 
 class User(models.Model):
     email = models.EmailField()
     password = models.CharField(max_length=512, null=True)
-    created_at = models.DateTimeField('create datetime', null=True)
-    updated_at = models.DateTimeField('update datetime', null=True)
+    created_at = models.DateTimeField('create datetime', auto_now_add=True, null=True)
+    updated_at = models.DateTimeField('update datetime', auto_now=True, null=True)
     
     @classmethod
     def hash_password(cls, password_str):
@@ -37,4 +37,4 @@ class User(models.Model):
 class UserHomework(models.Model):
     user = models.ForeignKey(User)
     homework = models.ForeignKey(Homework)
-    created_at = models.DateTimeField('create datetime', null=True)
+    created_at = models.DateTimeField('create datetime', auto_now_add=True, null=True)
