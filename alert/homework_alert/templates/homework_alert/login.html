@@ -18,6 +18,7 @@
 		<div class="contents">
 			<h1>ログイン</h1>
 			<form name="login" method="post" url="./">
+				{% csrf_token %}
 				<table id="login">
 					<tr><td>メールアドレス</td><td><input name="mail" type="email" /></td></tr>
 					<tr><td>パスワード</td><td><input name="password" type="password" /></td></tr>
