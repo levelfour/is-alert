@@ -16,17 +16,17 @@
 			IS2015-Homework-Alert
 		</header>
 		<div class="contents">
-			<a href="login">ログイン</a>
-			<table id="works">
-				<tr>
-					<th>講義名</th><th>課題</th><th>提出期限</th>
-				</tr>
-				{% for work in works %}
-					<tr>
-						<td>{{ work.lecture }}</td><td>{{ work.name }}</td><td>{{ work.deadline }}</td>
-					</tr>
-				{% endfor %}
-			</table>
+			<h1>ログイン</h1>
+			<form name="login" method="post" url="./">
+				<table id="login">
+					<tr><td>メールアドレス</td><td><input name="mail" type="email" /></td></tr>
+					<tr><td>パスワード</td><td><input name="password" type="password" /></td></tr>
+				</table>
+				<button type="submit">ログイン</button>
+			</form>
+			<div>
+				アカウントをまだ持っていない場合は<a href="signup">アカウントの作成</a>へ。
+			</div>
 		</div>
 	</body>
 </html>
