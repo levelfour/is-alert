@@ -1,6 +1,6 @@
 # coding: utf-8
 from django.shortcuts import render, redirect
-from homework_alert.models import User, Homework
+from homework_alert.models import User, Homework, UserHomework
 
 
 def check_login(request):
@@ -17,6 +17,7 @@ def index(request):
     works = Homework.objects.all()
     login = check_login(request)
     user = None
+    user_work = None
     if login:
         user = User.objects.get(user_token=request.session['isal_u'])
     return render(request, 'homework_alert/index.html', {'works': works, 'login': login, 'user': user})

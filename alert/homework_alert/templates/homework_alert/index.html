@@ -1,3 +1,4 @@
+{% load alert_extras %}
 <!DOCTYPE html>
 <html lang="ja">
 	<head>
@@ -34,7 +35,7 @@
 					<tr>
 						<td>{{ work.lecture }}</td><td>{{ work.name }}</td><td>{{ work.deadline }}</td>
 						{% if login %}
-						<td></td>
+						<td>{{ work | is_done:user.id }}</td>
 						{% endif %}
 					</tr>
 				{% endfor %}

@@ -2,7 +2,7 @@ import hashlib
 from django.db import models
 
 
-def get_nextautoincrement( mymodel ):
+def get_nextautoincrement(mymodel):
     from django.db import connection
     cursor = connection.cursor()
     cursor.execute("SELECT seq FROM SQLITE_SEQUENCE WHERE name='%s';" % \
@@ -17,6 +17,13 @@ class Homework(models.Model):
     deadline = models.DateTimeField('deadline')
     created_at = models.DateTimeField('create datetime', auto_now_add=True, null=True)
     updated_at = models.DateTimeField('update datetime', auto_now=True, null=True)
+
+    def is_done(self, user_id):
+        try:
+            user_work = UserHomework.objects.get(user_id=user_id, homework_id=self.id)
+            return user_work != None
+        except UserHomework.DoesNotExists as e:
+            return False
 
 
 class User(models.Model):
