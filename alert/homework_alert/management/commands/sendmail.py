@@ -13,9 +13,7 @@ class Command(BaseCommand):
         for homework in homeworks:
             homework_list += u'・[{}] {}\n'.format(homework.lecture, homework.name)
         message = u'''明日{}までに提出の課題のうち，以下の課題が未提出になっています．
-
-{}
-提出期限を確認し，遅れないように提出してください．
+{}提出期限を確認し，遅れないように提出してください．
 なお，既に提出した場合は
 http://alert.hermite.jp/homework/
 よりログインし，提出済みにチェックしてください．'''.format((datetime.date.today() + datetime.timedelta(1)).strftime('%m月%d日').decode('utf-8'), homework_list)
