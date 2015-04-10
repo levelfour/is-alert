@@ -22,6 +22,15 @@ header {
 	font-size: 1.8rem;
 }
 
+header span.mail {
+	float: right;
+	font-size: 1rem;
+}
+
+header span.mail:after {
+	clear: both;
+}
+
 span.error {
 	color: #f00;
 }
