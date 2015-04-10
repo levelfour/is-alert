@@ -22,7 +22,7 @@ class Homework(models.Model):
         try:
             user_work = UserHomework.objects.get(user_id=user_id, homework_id=self.id)
             return user_work != None
-        except UserHomework.DoesNotExists as e:
+        except UserHomework.DoesNotExist as e:
             return False
 
 
