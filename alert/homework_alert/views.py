@@ -22,6 +22,16 @@ def index(request):
         user = User.objects.get(user_token=request.session['isal_u'])
     return render(request, 'homework_alert/index.html', {'works': works, 'login': login, 'user': user})
 
+def done(request):
+    if check_login(request) and 'id' in request.GET:
+        user = User.objects.get(user_token=request.session['isal_u'])
+        try:
+            user_work = UserHomework.objects.get(user_id=user.id, homework_id=request.GET['id'])
+            user_work.delete()
+        except UserHomework.DoesNotExist as e:
+            user_work = UserHomework.objects.create(user_id=user.id, homework_id=request.GET['id'])
+    return redirect(index)
+
 def login(request):
     error = None
     if request.method == 'POST':
