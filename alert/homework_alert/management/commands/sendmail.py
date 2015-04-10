@@ -26,6 +26,7 @@ http://alert.hermite.jp/homework/
         for user in User.objects.all():
             homeworks = []
             for homework in Homework.objects.filter(deadline__gt=timezone.now(), deadline__lt=timezone.now()+datetime.timedelta(2)):
+                # 1日以内に提出期限をむかえる課題をfilter
                 if not homework.is_done(user.id):
                     homeworks.append(homework)
             if homeworks != []:
