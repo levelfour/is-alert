@@ -14,21 +14,28 @@
 	<body>
 		<header>
 			<a href="/homework">IS2015-Homework-Alert</a>
+			<span class="mail">
 			{% if login %}
-			<span class="mail">{{ user.email }} | <a href="logout">ログアウト<a></span>
+			{{ user.email }} | <a href="logout">ログアウト</a>
+			{% else %}
+			<a href="login">ログイン</a>
 			{% endif %}
+			</span>
 		</header>
 		<div class="contents">
-			{% if login == False %}
-				<a href="login">ログイン</a>
-			{% endif %}
 			<table id="works">
 				<tr>
 					<th>講義名</th><th>課題</th><th>提出期限</th>
+					{% if login %}
+					<th>Done?</th>
+					{% endif %}
 				</tr>
 				{% for work in works %}
 					<tr>
 						<td>{{ work.lecture }}</td><td>{{ work.name }}</td><td>{{ work.deadline }}</td>
+						{% if login %}
+						<td></td>
+						{% endif %}
 					</tr>
 				{% endfor %}
 			</table>

@@ -11,8 +11,7 @@ def check_login(request):
             user.update_token()
             request.session['isal_t'] = user.access_token
             return True
-    else:
-        return False
+    return False
 
 def index(request):
     works = Homework.objects.all()
