@@ -49,6 +49,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'auth.BasicAuthMiddleware'
 )
 
 ROOT_URLCONF = 'alert.urls'
@@ -104,3 +105,7 @@ STATIC_URL = '/static/'
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
+# Basic-Auth
+BASICAUTH_USERNAME = 'kenkyo'
+BASICAUTH_PASSWORD = 'yushuu'
