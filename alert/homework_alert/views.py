@@ -14,7 +14,7 @@ def check_login(request):
     return False
 
 def index(request):
-    works = Homework.objects.all()
+    works = Homework.objects.all().order_by('deadline')
     login = check_login(request)
     user = None
     user_work = None

@@ -58,6 +58,8 @@ table#works {
 
 table#works th {
 	padding: 5px;
+	color: #fff;
+	background-color: #666;
 	font-weight: normal;
 }
 
@@ -68,3 +70,6 @@ table#works td {
 table#works th, table#works td {
 	border: 1px #555 solid;
 }
+
+table#works tr.alert { color: #f00 }
+table#works tr.done { color: #eee }
