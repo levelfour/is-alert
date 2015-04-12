@@ -73,3 +73,4 @@ table#works th, table#works td {
 
 table#works tr.alert { color: #f00 }
 table#works tr.done { color: #eee }
+table#works tr.deadline { display: none }

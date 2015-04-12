@@ -39,7 +39,9 @@
 					{% endif %}
 						<td>{{ work.lecture }}</td><td>{{ work.name }}</td><td>{{ work.deadline | date:'Y/n/d A g:i' }}</td>
 						{% if login %}
-						<td><a href="done?id={{ work.id }}">{{ work | is_done:user.id }}</a></td>
+						<td>
+							<a href="done?id={{ work.id }}">{{ work | is_done:user.id }}</a>
+						</td>
 						{% endif %}
 					</tr>
 				{% endfor %}

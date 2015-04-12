@@ -12,9 +12,13 @@ def is_done(work, user_id):
 
 @register.filter
 def style(work, user_id):
+    until_deadline = work.deadline - timezone.now()
     if is_done(work, user_id):
-        return 'done'
-    elif work.deadline - timezone.now() < dt.timedelta(days=2):
+        if until_deadline < dt.timedelta(days=0):
+            return 'deadline'
+        else:
+            return 'done'
+    elif until_deadline < dt.timedelta(days=2):
         return 'alert'
     else:
         return ''
