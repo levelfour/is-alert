@@ -17,7 +17,7 @@ class Command(BaseCommand):
 なお，既に提出した場合は
 http://alert.hermite.jp/homework/
 よりログインし，提出済みにチェックしてください．'''.format((datetime.date.today() + datetime.timedelta(1)).strftime('%m月%d日').decode('utf-8'), homework_list)
-        send_mail('[hermite]未提出の課題通知', message, 'info@alert.hermite.jp', [user.email], fail_silently=False)
+        send_mail('[hermite]進捗どうですか？', message, 'info@alert.hermite.jp', [user.email], fail_silently=False)
         print 'sent mail to {}'.format(user.email)
 
     def handle(self, *args, **options):
