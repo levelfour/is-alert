@@ -35,6 +35,9 @@ class Command(BaseCommand):
             try:
                 homework = Homework.objects.get(lecture=lecture, name=name)
             except Homework.DoesNotExist as e:
-                date = datetime(datetime.now().year, deadline['month'], deadline['day'], deadline['hour'], deadline['min'], deadline['sec'])
+                year = datetime.now().year
+                if datetime.now().month > int(deadline['month']) + 1:
+                    year += 1
+                date = datetime(year, deadline['month'], deadline['day'], deadline['hour'], deadline['min'], deadline['sec'])
                 Homework.objects.create(lecture=lecture, name=name, deadline=timezone.make_aware(date, timezone.get_current_timezone()))
                 print u'Add [{}] {}'.format(lecture, name)
