@@ -21,7 +21,7 @@ http://alert.hermite.jp/homework/
         print 'sent mail to {}'.format(user.email)
 
     def handle(self, *args, **options):
-        for user in User.objects.all():
+        for user in User.objects.filter(notification__exact=True):
             homeworks = []
             lo = timezone.now()
             up = timezone.now() + datetime.timedelta(2, -1)

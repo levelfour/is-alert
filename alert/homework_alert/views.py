@@ -32,6 +32,16 @@ def done(request):
             user_work = UserHomework.objects.create(user_id=user.id, homework_id=request.GET['id'])
     return redirect(index)
 
+def turn(request):
+    if check_login(request):
+        user = User.objects.get(user_token=request.session['isal_u'])
+        if user.notification:
+            user.notification = False
+        else:
+            user.notification = True
+        user.save()
+    return redirect(index)
+
 def login(request):
     error = None
     if request.method == 'POST':

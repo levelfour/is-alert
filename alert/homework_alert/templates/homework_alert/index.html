@@ -30,6 +30,15 @@
 				提出済みの課題はDone?の部分をクリックしてTrueにしてください。
 				なお、締切をすぎるまでは課題は表示されますが、締切を過ぎると提出済みの課題は表示されなくなるので注意してください。
 			</p>
+			<div class="notification">
+				通知(クリックで切り替わります): <a href="turn">
+					{% if user.notification %}
+					ON
+					{% else %}
+					OFF
+					{% endif %}
+					</a>
+			</div>
 			{% endif %}
 			<table id="works">
 				<tr>

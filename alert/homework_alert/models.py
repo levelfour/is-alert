@@ -31,6 +31,7 @@ class User(models.Model):
     password = models.CharField(max_length=512, null=True)
     user_token = models.CharField(max_length=128, null=True)
     access_token = models.CharField(max_length=128, null=True)
+    notification = models.BooleanField(default=True)
     created_at = models.DateTimeField('create datetime', auto_now_add=True, null=True)
     updated_at = models.DateTimeField('update datetime', auto_now=True, null=True)
     
